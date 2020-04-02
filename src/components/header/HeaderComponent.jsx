@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 //styles
 import './header-component.styles.scss'
@@ -33,4 +34,10 @@ const Header = ({ currentUser }) => (
   </div>
 )
 
-export default Header
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentUser: state.user.currentUser
+  }
+}
+
+export default connect(mapStateToProps, null)(Header)
